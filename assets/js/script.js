@@ -19,13 +19,13 @@ $(document).ready(function() {
     return $.ajax({
       method: 'GET',
       url: 'https://api.disneyapi.dev/characters?page=' + index
-    }).then(function(response) {
+    }).then(response => {
       for (let i = 0; i < response.data.length; i++) {
         charList.push(response.data[i].name);
       };
 
       return response.totalPages;
-    }).catch(function(error) {
+    }).catch(error => {
       console.log(error);
     });
   };
