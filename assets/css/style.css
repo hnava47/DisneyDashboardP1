@@ -1,3 +1,5 @@
+
+
 .control {
     width: 260px;
     
@@ -10,4 +12,22 @@
     background-color: black;
     border-radius: 3px;
     padding:10px;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 48px;
+}
+
+.subtitles {
+    font-size: 32px;
+}
+
+.columns{
+    display: inline-block;
 }
