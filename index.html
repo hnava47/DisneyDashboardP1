@@ -15,9 +15,9 @@
 
 <body>
 
-    <section class="hero is-danger">
+    <section class="hero is-link is-center">
         <div class="hero-body">
-            <p class="title">
+            <p class="title ">
                 Disney peeps
             </p>
             <p class="subtitle">
@@ -29,16 +29,31 @@
     <div class="control">
         <input id='input' class="input is-focused" type="text" placeholder="find your character">
         <button class="button is-dark button">submit</button>
+        <button class="button is-success">
+            <span class="icon is-small">
+                <i class="fas fa-check"></i>
+            </span>
+            <span>Save</span>
+        </button>
+
+
+
     </div>
 
     <br>
 
     <div class="control favorites">
+        <input class="input " type="text" value="This text is readonly" readonly> <button
+            class="delete is-small is-flex-wrap-wrap"></button>
+
         <input class="input" type="text" value="This text is readonly" readonly>
+        <button class="delete is-small "></button>
         <input class="input" type="text" value="This text is readonly" readonly>
+        <button class="delete is-small"></button>
         <input class="input" type="text" value="This text is readonly" readonly>
+        <button class="delete is-small"></button>
         <input class="input" type="text" value="This text is readonly" readonly>
-        <input class="input" type="text" value="This text is readonly" readonly>
+        <button class="delete is-small"></button>
     </div>
 
     <div class="image" id="image">
@@ -52,6 +67,45 @@
     <div class="image" id="image">
         <img src="" alt="">
     </div>
+    <br />
+    <br />
+
+    <nav class="breadcrumb is-small is-right class=mb-5" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="icon is-small">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                    </span>
+                    <span>Bulma</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon is-small">
+                        <i class="fas fa-book" aria-hidden="true"></i>
+                    </span>
+                    <span>Documentation</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon is-small">
+                        <i class="fas fa-puzzle-piece" aria-hidden="true"></i>
+                    </span>
+                    <span>Components</span>
+                </a>
+            </li>
+            <li class="is-active">
+                <a href="#">
+                    <span class="icon is-small">
+                        <i class="fas fa-thumbs-up" aria-hidden="true"></i>
+                    </span>
+                    <span>breadcrumbs</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
