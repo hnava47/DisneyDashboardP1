@@ -15,20 +15,20 @@
 
 <body>
 
-    <section class="hero is-danger">
+    <section class="hero is-link is-small">
         <div class="hero-body">
             <p class="title">
-                Disney peeps
+                Disney Peeps
             </p>
             <p class="subtitle">
-                find you character !!!!
+                Find your character !!!!
             </p>
         </div>
     </section>
 
     <div class="control">
         <input id='input' class="input is-focused" type="text" placeholder="find your character">
-        <button class="button is-dark button">submit</button>
+        <button class="button is-dark is-rounded">submit</button>
     </div>
 
     <br>
@@ -40,18 +40,14 @@
         <input class="input" type="text" value="This text is readonly" readonly>
         <input class="input" type="text" value="This text is readonly" readonly>
     </div>
-
-    <div class="image" id="image">
-        <img src="" alt="">
-    </div>
-
-    <div class="image" id="image">
-        <img src="" alt="">
-    </div>
-
-    <div class="image" id="image">
-        <img src="" alt="">
-    </div>
+    <br>
+    
+    <div class="columns ml-4">  
+        <div class="column notification is-info is-one-quarter">Info</div>
+        <div class="column notification is-success is-one-quarter">IMDB</div>
+        <div class="column notification is-warning is-half">Picture</div>
+        <div class="column">Fourth column</div>
+      </div>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -62,3 +58,17 @@
 </body>
 
 </html>
+
+
+
+ <!-- <div class="image" id="image">
+    <img src="" alt="">
+</div>
+
+<div class="image" id="image">
+    <img src="" alt="">
+</div>
+
+<div class="image" id="image">
+    <img src="" alt="">
+</div>-->
