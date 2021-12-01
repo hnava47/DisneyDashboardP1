@@ -30,7 +30,6 @@ $(document).ready(function() {
     });
   };
 
-  //  testing changes
     // $.ajax({
     //   method: 'GET',
     //   url: 'https://imdb-api.com/en/API/SearchMovie/k_bicys5i4/Tangled'
