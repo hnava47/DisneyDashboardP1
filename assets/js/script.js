@@ -1,6 +1,8 @@
 $(document).ready(function() {
   const $searchInput = $('#input');
+  const $searchBtn = $('#submitBtn');
   let charList = [];
+  let charDetails = {};
 
   retrieveChar(1).then(dataLength => {
     for (let i = 2; i <= dataLength; i++) {
@@ -22,6 +24,12 @@ $(document).ready(function() {
     }).then(response => {
       for (let i = 0; i < response.data.length; i++) {
         charList.push(response.data[i].name);
+        charDetails[response.data[i].name] = {
+          id: response.data[i]._id,
+          films: response.data[i].films,
+          img: response.data[i].imageUrl,
+          url: response.data[i].url
+        };
       };
 
       return response.totalPages;
@@ -29,6 +37,14 @@ $(document).ready(function() {
       console.log(error);
     });
   };
+
+  $searchBtn.on('click', event => {
+    event.preventDefault();
+
+    let selectChar = $searchInput.val();
+
+    console.log(charDetails[selectChar]);
+  });
 
     // $.ajax({
     //   method: 'GET',
