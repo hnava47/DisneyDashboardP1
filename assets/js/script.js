@@ -75,16 +75,15 @@ $(document).ready(function() {
       $gameEl.append($gameDet);
     }
 
-    $setImg.addClass('is-rounded is-inline-block')
-      .attr({
+    $setImg.attr({
         src: charDetails[selectChar].img,
         alt: 'Image of Character'
       });
 
+    $infoEl.text("Additional Info")
+      .attr('href', charDetails[selectChar].source);
+
     $primaryImg.append($setImg);
-
-    console.log(charDetails[selectChar])
-
   });
 
     // $.ajax({

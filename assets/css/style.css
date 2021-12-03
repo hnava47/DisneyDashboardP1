@@ -2,26 +2,12 @@ body {
     font-family: 'Mouse Memoirs', sans-serif;
 }
 
-.control {
-    width: 260px;
-
-}
-
 .main {
     min-height: 15rem;
 }
 
-#primary {
-    width: 50%;
-}
-
-.image {
-    width: 250px;
-    height: 50px;
-    color: black;
-    background-color: black;
-    border-radius: 3px;
-    padding:10px;
+img {
+    border-radius: 10%;
 }
 
 .custom-shadow {
