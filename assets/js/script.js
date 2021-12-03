@@ -1,4 +1,8 @@
 $(document).ready(function() {
+
+
+
+
   const $searchInput = $('#input');
   const $searchBtn = $('#submitBtn');
   const $primaryName = $('#primary-name');
@@ -50,6 +54,29 @@ $(document).ready(function() {
     console.log(charDetails[selectChar]);
   });
 
+	var modalEl = document.getElementById('modal-ter');
+	var modalTextEl = document.getElementById('modal-text');
+  function showModal(evt) {
+      modalEl.classList.add('is-active');
+      modalTextEl.innerHTML = evt.currentTarget.modalText
+  }
+  var minusbutton = document.getElementById('m-button');
+  var plusbutton = document.getElementById('p-button');
+  minusbutton.addEventListener('click', showModal);
+  minusbutton.modalText = 'Are you sure you want to remove a favorite?';
+  plusbutton.addEventListener('click', showModal);
+  plusbutton.modalText = 'Are you sure you want to add a favorite?';
+
+  
+
+	var yesButtonEl = document.getElementById('modal-yes-button');
+	var noButtonEl = document.getElementById('modal-no-button');
+  
+  function hideModal() {
+      modalEl.classList.remove('is-active');
+  }
+  yesButtonEl.addEventListener('click', hideModal);
+  noButtonEl.addEventListener('click', hideModal);
     // $.ajax({
     //   method: 'GET',
     //   url: 'https://imdb-api.com/en/API/SearchMovie/k_bicys5i4/Tangled'
