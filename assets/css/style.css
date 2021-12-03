@@ -1,8 +1,14 @@
-
+body {
+    font-family: 'Mouse Memoirs', sans-serif;
+}
 
 .control {
     width: 260px;
-    
+
+}
+
+.main {
+    min-height: 15rem;
 }
 
 .image {
@@ -14,20 +20,44 @@
     padding:10px;
 }
 
-.hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.custom-shadow {
+    box-shadow: 3.3px 6.6px 6.6px hsl(0deg 0% 0% / 0.40);
 }
 
-.title {
-    font-size: 48px;
+.b {
+    border: 1px black solid;
 }
 
-.subtitles {
-    font-size: 32px;
+.bb {
+    border-bottom: 1px black solid;
 }
 
-.columns{
-    display: inline-block;
-}
+#submitBtn {
+    border: none;
+    font-family: sans-serif;
+    font-size: 17px;
+    background: transparent;
+    color: #006bb3;
+    border: solid 1px rgba(0, 107, 179, 0.2);
+    padding: 10px;
+    border-radius: 4px;
+    transition-duration: 0.2s;
+   }
+
+   #submitBtn:before {
+    content: "»";
+    opacity: 0;
+    margin-left: -15px;
+    transition-duration: 0.2s;
+   }
+
+   #submitBtn:hover:before {
+    margin-left: 0px;
+    opacity: 1;
+   }
+
+   #submitBtn:hover {
+    color: black;
+    background: rgba(0, 0, 0, 0.02);
+    border: solid 1px gainsboro;
+   }
