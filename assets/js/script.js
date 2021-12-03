@@ -1,6 +1,7 @@
 $(document).ready(function() {
   const $searchInput = $('#input');
   const $searchBtn = $('#submitBtn');
+  const $primaryName = $('#primary-name');
   let charList = [];
   let charDetails = {};
 
@@ -24,7 +25,8 @@ $(document).ready(function() {
     }).then(response => {
       for (let i = 0; i < response.data.length; i++) {
         charList.push(response.data[i].name);
-        charDetails[response.data[i].name] = {
+        charDetails[response.data[i].name.toLowerCase()] = {
+          name: response.data[i].name,
           id: response.data[i]._id,
           films: response.data[i].films,
           img: response.data[i].imageUrl,
@@ -41,7 +43,9 @@ $(document).ready(function() {
   $searchBtn.on('click', event => {
     event.preventDefault();
 
-    let selectChar = $searchInput.val();
+    let selectChar = $searchInput.val().toLowerCase();
+
+    $primaryName.text(charDetails[selectChar].name);
 
     console.log(charDetails[selectChar]);
   });
