@@ -11,6 +11,10 @@ body {
     min-height: 15rem;
 }
 
+#primary {
+    width: 50%;
+}
+
 .image {
     width: 250px;
     height: 50px;
