@@ -1,66 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Disney Dashboard</title>
-        <link rel="icon" type="image/x-icon" href="./assets/img/fort-awesome-alt-brands.svg" />
-        <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css" />
-        <link rel="stylesheet" href="./assets/css/style.css" />
-    </head>
-    <body>
-        <nav class="navbar is-info custom-shadow" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-              <img src="./assets/img/disneyLogo.png" width="200" alt="Disney Logo" />
-            </div>
-            <div class="navbar-end content is-large mr-6 mt-4">
-                <h1 class="has-text-weight-bold has-text-black">Disney Dashboard</h1>
-            </div>
-        </nav>
-        <div class="columns mt-5">
-            <div class="column is-one-fifth ml-4">
-                <h2 class="is-size-1 has-text-weight-bold has-text-black mb-3">Search Characters:</h2>
-                <form>
-                    <div>
-                        <input id="input" class="input is-large is-info mb-3" type="text" placeholder="Character input">
-                    </div>
-                    <div class="bb">
-                        <button id="submitBtn" class="custom-shadow mb-4" type="submit">Search</button>
-                    </div>
-                </form>
-                <article class="panel is-info custom-shadow">
-                    <div class="panel-heading mt-3 pb-5">
-                        <p class="is-inline-block has-text-black mt-2">
-                            Favorites
-                        </p>
-                        <div class="is-inline-block is-pulled-right">
-                            <div class="button is-light custom-shadow mr-2">Plus</div>
-                            <div class="button is-light custom-shadow">Minus</div>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Disney Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="./assets/img/fort-awesome-alt-brands.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+    <nav class="navbar is-info custom-shadow" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <img src="./assets/img/disneyLogo.png" width="200" alt="Disney Logo" />
+        </div>
+        <div class="navbar-end content is-large mr-6 mt-4">
+            <h1 class="has-text-weight-bold has-text-black">Disney Dashboard</h1>
+        </div>
+    </nav>
+    <div class="columns mt-5">
+        <div class="column is-one-fifth ml-4">
+            <h2 class="is-size-1 has-text-weight-bold has-text-black mb-3">Search Characters:</h2>
+            <form>
+                <div>
+                    <input id="input" class="input is-large is-info mb-3" type="text" placeholder="Character input">
+                </div>
+                <div class="bb">
+                    <button id="submitBtn" class="custom-shadow mb-4" type="submit">Search</button>
+                </div>
+            </form>
+            <article class="panel is-info custom-shadow">
+                <div class="panel-heading mt-3 pb-5">
+                    <p class="is-inline-block has-text-black mt-2">
+                        Favorites
+                    </p>
+                    <div class="is-inline-block is-pulled-right">
+
+
+
+                        <!-- START BULMA MODAL -->
+                        <div id="modal-ter" class="modal">
+                            <div class="modal-background"></div>
+                            <div class="modal-card">
+                                <section class="modal-card-body">
+                                    <!-- Content ... -->
+                                    <div class="content">
+                                        <p id='modal-text' style='color:black'>are you sure you want to do that?</p>
+                                    </div>
+                                </section>
+                                <footer class="modal-card-foot">
+                                    <button id='modal-yes-button' class="button is-success">Yes</button>
+                                    <button id='modal-no-button' class="button">No</button>
+                                </footer>
+                            </div>
                         </div>
+
+
+                        <div id="p-button" class="button is-light custom-shadow mr-2">Plus</div>
+                        <div id="m-button" class="button is-light custom-shadow">Minus</div>
                     </div>
-                    <a class="panel-block is-active">
-                      <span class="panel-icon">
+                </div>
+                <a class="panel-block is-active">
+                    <span class="panel-icon">
                         <i class="fas fa-book" aria-hidden="true"></i>
-                      </span>
-                      bulma
-                    </a>
-                    <a class="panel-block">
-                      <span class="panel-icon">
+                    </span>
+                    bulma
+                </a>
+                <a class="panel-block">
+                    <span class="panel-icon">
                         <i class="fas fa-book" aria-hidden="true"></i>
-                      </span>
-                      marksheet
-                    </a>
-                    <a class="panel-block">
-                      <span class="panel-icon">
+                    </span>
+                    marksheet
+                </a>
+                <a class="panel-block">
+                    <span class="panel-icon">
                         <i class="fas fa-book" aria-hidden="true"></i>
-                      </span>
-                      minireset.css
-                    </a>
-                    <a class="panel-block">
-                      <span class="panel-icon">
+                    </span>
+                    minireset.css
+                </a>
+                <a class="panel-block">
+                    <span class="panel-icon">
                         <i class="fas fa-book" aria-hidden="true"></i>
                       </span>
                       jgthms.github.io
@@ -68,20 +91,44 @@
                   </article>
             </div>
             <div class="column">
-                <div class="column mr-4">
-                    <div class="columns custom-shadow main b">
-                        <h1>Mickey Mouse</h1>
+              <div class="column mr-4">
+                <div class="column content is-large custom-shadow main b">
+                  <div class="ml-5 my-4">
+                    <div id="primary" class="level">
+                      <div>
+                        <h1 id="primary-name" class="title is-1 has-text-black pr-6 is-underlined"></h1>
+                        <h1 class="title is-4">
+                          <a id="info" href="" target="_blank"></a>
+                        </h1>
+                      </div>
+                      <feature id="primary-img" class="level-item"></feature>
                     </div>
-                    <div class="columns main mt-3">
-                        <div class="column custom-shadow mr-5 b"></div>
-                        <div class="column custom-shadow b"></div>
+                    <div class="columns">
+                      <div class="column">
+                        <h1 class="title is-2">Shows:</h1>
+                        <ul id="show"></ul>
+                      </div>
+                      <div class="column">
+                        <h1 class="title is-2">Games:</h1>
+                        <ul id="game"></ul>
+                      </div>
                     </div>
+                  </div>
                 </div>
+                <div class="columns main mt-3">
+                    <div class="column custom-shadow mr-5 b"></div>
+                    <div class="column custom-shadow b"></div>
+                </div>
+              </div>
             </div>
         </div>
+    </div>
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js" integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA=" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="./assets/js/script.js"></script>
-    </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"
+        integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./assets/js/script.js"></script>
+</body>
+
 </html>
