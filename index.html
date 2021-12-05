@@ -8,6 +8,7 @@
     <title>Disney Dashboard</title>
     <link rel="icon" type="image/x-icon" href="./assets/img/fort-awesome-alt-brands.svg" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
@@ -36,23 +37,21 @@
             <button id="submitBtn" class="custom-shadow mb-4" type="submit">Search</button>
           </div>
         </form>
-        <div class="my-3">
-          <button id="p-button" class="button is-light custom-shadow mr-2">Plus</button>
-          <button id="m-button" class="button is-light custom-shadow">Minus</button>
-        </div>
-        <article class="panel is-info custom-shadow">
-          <div class="panel-heading mt-3 pb-5">
-            <p class="is-inline-block has-text-black mt-2">
-              Favorites
-            </p>
+        <div class="level my-3">
+          <h2 class="is-size-2 has-text-weight-bold has-text-black">Favorites:</h2>
+          <div>
+            <button id="p-button" class="button is-light custom-shadow mr-2">
+              <i class="fas fa-plus"></i>
+            </button>
+            <button id="m-button" class="button is-light custom-shadow">
+              <i class="fas fa-minus"></i>
+            </button>
           </div>
-          <a class="panel-block is-active">
-            <span class="panel-icon">
-              <i class="fas fa-book" aria-hidden="true"></i>
-            </span>
-            bulma
-          </a>
-        </article>
+        </div>
+        <div id="favorites" class="buttons are-medium">
+          <button class="button is-info is-outlined is-fullwidth custom-shadow">info</button>
+          <button class="button is-info is-outlined is-fullwidth custom-shadow">info2</button>
+        </div>
         <!-- START BULMA MODAL -->
         <div id="modal-ter" class="modal">
           <div class="modal-background"></div>

@@ -32,22 +32,26 @@ img {
     padding: 10px;
     border-radius: 4px;
     transition-duration: 0.2s;
-   }
+}
 
-   #submitBtn:before {
+#submitBtn:before {
     content: "»";
     opacity: 0;
     margin-left: -15px;
     transition-duration: 0.2s;
-   }
+}
 
-   #submitBtn:hover:before {
+#submitBtn:hover:before {
     margin-left: 0px;
     opacity: 1;
-   }
+}
 
-   #submitBtn:hover {
+#submitBtn:hover {
     color: black;
     background: rgba(0, 0, 0, 0.02);
     border: solid 1px gainsboro;
-   }
+}
+
+#favorites {
+    width: 100%;
+}
