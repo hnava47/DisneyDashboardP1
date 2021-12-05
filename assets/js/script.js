@@ -1,8 +1,4 @@
 $(document).ready(function() {
-
-
-
-
   const $searchInput = $('#input');
   const $searchBtn = $('#submitBtn');
   const $primaryName = $('#primary-name');
