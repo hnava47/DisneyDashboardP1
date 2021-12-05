@@ -94,24 +94,30 @@ $(document).ready(function() {
     $primaryImg.append($setImg);
   });
 
+  // Event listener to enable minus button on favorite character selected
   $(document).on('click', '.fav-item', function() {
     $minusButton.prop('disabled', false);
   });
 
+  // Function to show modal
   function showModal() {
       $modalEl.addClass('is-active');
   };
 
+  // Function to hide modal
   function hideModal() {
     $modalEl.removeClass('is-active');
   };
 
+  // Event listener to displays modal upon minus button click
   $minusButton.on('click', showModal);
 
+  // Event listener to remove favorite from local storage
   $yesBtnEl.on('click', function() {
     hideModal();
   });
 
+  // Exit modal when no button selected
   $noBtnEl.on('click', hideModal);
 
     // $.ajax({
