@@ -61,6 +61,9 @@ $(document).ready(function() {
   $searchBtn.on('click', event => {
     event.preventDefault();
 
+    $showEl.children().remove();
+    $gameEl.children().remove();
+
     let selectChar = $searchInput.val().toLowerCase();
 
     $primaryName.text(charDetails[selectChar].name);
@@ -103,11 +106,11 @@ $(document).ready(function() {
   plusbutton.addEventListener('click', showModal);
   plusbutton.modalText = 'Are you sure you want to add a favorite?';
 
-  
+
 
 	var yesButtonEl = document.getElementById('modal-yes-button');
 	var noButtonEl = document.getElementById('modal-no-button');
-  
+
   function hideModal() {
       modalEl.classList.remove('is-active');
   }
