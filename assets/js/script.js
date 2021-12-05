@@ -7,6 +7,11 @@ $(document).ready(function() {
   const $gameEl = $('#game');
   const $infoEl = $('#info');
   const $setImg = $('<img>');
+  const $plusButton = $('#p-button')
+  const $minusButton = $('#m-button');
+  const $modalEl = $('#modal-ter');
+  const $yesBtnEl = $('#modal-yes-button');
+  const $noBtnEl = $('#modal-no-button');
   let charList = [];
   let charDetails = {};
 
@@ -89,29 +94,26 @@ $(document).ready(function() {
     $primaryImg.append($setImg);
   });
 
-	var modalEl = document.getElementById('modal-ter');
-	var modalTextEl = document.getElementById('modal-text');
-  function showModal(evt) {
-      modalEl.classList.add('is-active');
-      modalTextEl.innerHTML = evt.currentTarget.modalText
-  }
-  var minusbutton = document.getElementById('m-button');
-  var plusbutton = document.getElementById('p-button');
-  minusbutton.addEventListener('click', showModal);
-  minusbutton.modalText = 'Are you sure you want to remove a favorite?';
-  plusbutton.addEventListener('click', showModal);
-  plusbutton.modalText = 'Are you sure you want to add a favorite?';
+  $(document).on('click', '.fav-item', function() {
+    $minusButton.prop('disabled', false);
+  });
 
-
-
-	var yesButtonEl = document.getElementById('modal-yes-button');
-	var noButtonEl = document.getElementById('modal-no-button');
+  function showModal() {
+      $modalEl.addClass('is-active');
+  };
 
   function hideModal() {
-      modalEl.classList.remove('is-active');
-  }
-  yesButtonEl.addEventListener('click', hideModal);
-  noButtonEl.addEventListener('click', hideModal);
+    $modalEl.removeClass('is-active');
+  };
+
+  $minusButton.on('click', showModal);
+
+  $yesBtnEl.on('click', function() {
+    hideModal();
+  });
+
+  $noBtnEl.on('click', hideModal);
+
     // $.ajax({
     //   method: 'GET',
     //   url: 'https://imdb-api.com/en/API/SearchMovie/k_bicys5i4/Tangled'
