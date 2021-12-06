@@ -109,8 +109,24 @@ $(document).ready(function() {
   });
 
   // Event listener to enable minus button on favorite character selected
-  $(document).on('click', '.fav-item', function() {
+  $(document).on('click', '.fav-item', function () {
     $minusButton.prop('disabled', false);
+
+    let removeVal = this
+
+    // Exit modal when no button selected
+    $noBtnEl.on('click', hideModal);
+
+    // Event listener to remove favorite from local storage
+    $yesBtnEl.on('click', function() {
+      hideModal();
+
+    // Remove from HTML
+    removeVal.remove();
+
+    // Remove from Local Storage
+
+    });
   });
 
   // Function to show modal
@@ -125,14 +141,6 @@ $(document).ready(function() {
 
   // Event listener to displays modal upon minus button click
   $minusButton.on('click', showModal);
-
-  // Event listener to remove favorite from local storage
-  $yesBtnEl.on('click', function() {
-    hideModal();
-  });
-
-  // Exit modal when no button selected
-  $noBtnEl.on('click', hideModal);
 
     // $.ajax({
     //   method: 'GET',
