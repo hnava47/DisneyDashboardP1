@@ -60,6 +60,16 @@ $(document).ready(function() {
     });
   };
 
+  // Function to show modal
+  function showModal() {
+    $modalEl.addClass('is-active');
+  };
+
+  // Function to hide modal
+  function hideModal() {
+    $modalEl.removeClass('is-active');
+  };
+
   $searchBtn.on('click', event => {
     event.preventDefault();
 
@@ -109,7 +119,7 @@ $(document).ready(function() {
   });
 
   // Event listener to enable minus button on favorite character selected
-  $(document).on('click', '.fav-item', function () {
+  $(document).on('click', '.fav-item', function() {
     $minusButton.prop('disabled', false);
 
     let removeVal = this
@@ -128,16 +138,6 @@ $(document).ready(function() {
 
     });
   });
-
-  // Function to show modal
-  function showModal() {
-    $modalEl.addClass('is-active');
-  };
-
-  // Function to hide modal
-  function hideModal() {
-    $modalEl.removeClass('is-active');
-  };
 
   // Event listener to displays modal upon minus button click
   $minusButton.on('click', showModal);
