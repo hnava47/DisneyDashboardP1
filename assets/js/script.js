@@ -6,6 +6,7 @@ $(document).ready(function() {
   const $showEl = $('#show');
   const $gameEl = $('#game');
   const $infoEl = $('#info');
+  const $filmEl = $('#film');
   const $setImg = $('<img>');
   const $plusButton = $('#p-button')
   const $minusButton = $('#m-button');
@@ -64,6 +65,7 @@ $(document).ready(function() {
 
     $showEl.children().remove();
     $gameEl.children().remove();
+    $filmEl.children().remove();
 
     let selectChar = $searchInput.val().toLowerCase();
 
@@ -81,7 +83,15 @@ $(document).ready(function() {
 
       $gameDet.text(charDetails[selectChar].games[i]);
       $gameEl.append($gameDet);
-    }
+    };
+
+    for (let i = 0; i < charDetails[selectChar].films.length; i++) {
+      let $filmDet = $('<button>');
+
+      $filmDet.text(charDetails[selectChar].films[i])
+        .addClass('button is-large is-fullwidth is-inverted mb-1');
+      $filmEl.append($filmDet);
+    };
 
     $setImg.attr({
         src: charDetails[selectChar].img,
@@ -91,7 +101,7 @@ $(document).ready(function() {
     $infoEl.text("Additional Info")
       .attr('href', charDetails[selectChar].source);
 
-    $primaryImg.append($setImg);
+      $primaryImg.append($setImg);
   });
 
   // Event listener to enable minus button on favorite character selected

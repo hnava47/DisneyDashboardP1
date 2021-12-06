@@ -2,6 +2,10 @@ body {
     font-family: 'Mouse Memoirs', sans-serif;
 }
 
+button {
+    font-family: 'Mouse Memoirs', sans-serif;
+}
+
 .main {
     min-height: 15rem;
 }
