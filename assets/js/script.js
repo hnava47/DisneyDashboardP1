@@ -31,6 +31,8 @@ $(document).ready(function() {
     });
   });
 
+  displayFav()
+
   function retrieveChar(index) {
     return $.ajax({
       method: 'GET',
@@ -70,6 +72,31 @@ $(document).ready(function() {
   // Function to hide modal
   function hideModal() {
     $modalEl.removeClass('is-active');
+  };
+
+  function displayFav() {
+    $favEl.children().remove();
+    for (let i = 0; i < characters.length; i++) {
+      let $favBtn = $('<button>');
+
+      $favBtn.text(characters[i].name)
+        .addClass('button is-info is-outlined is-fullwidth custom-shadow fav-item');
+
+      $favEl.append($favBtn);
+    };
+  };
+
+  function removeDup(char) {
+    let uniqueLs = [];
+    for (let i = 0; i < characters.length; i++) {
+        if (characters[i].name !== char) {
+            uniqueLs.push(characters[i]);
+        };
+    };
+
+    localStorage.removeItem('characters');
+    localStorage.setItem('characters', JSON.stringify(uniqueLs));
+    characters = JSON.parse(localStorage.getItem('characters'));
   };
 
   $searchBtn.on('click', event => {
@@ -153,19 +180,17 @@ $(document).ready(function() {
   });
 
   $plusButton.on('click', function() {
-    let $favBtn = $('<button>');
     let details = {
       name: $primaryName.text()
     };
+
+    removeDup(details.name);
 
     characters.unshift(details);
 
     localStorage.setItem('characters', JSON.stringify(characters));
 
-    $favBtn.text($primaryName.text())
-      .addClass('button is-info is-outlined is-fullwidth custom-shadow fav-item');
-
-    $favEl.prepend($favBtn);
+    displayFav();
   });
 
     // $.ajax({
