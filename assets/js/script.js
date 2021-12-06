@@ -1,12 +1,4 @@
-<<<<<<< HEAD
 $(document).ready(function() {
-=======
-$(document).ready(function () {
-
-
-
-
->>>>>>> bulma
   const $searchInput = $('#input');
   const $searchBtn = $('#submitBtn');
   const $primaryName = $('#primary-name');
