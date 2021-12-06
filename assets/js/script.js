@@ -99,52 +99,64 @@ $(document).ready(function() {
     characters = JSON.parse(localStorage.getItem('characters'));
   };
 
-  $searchBtn.on('click', event => {
-    event.preventDefault();
-
+  function clearPage() {
+    $primaryName.text('');
+    $primaryImg.children().remove();
     $showEl.children().remove();
     $gameEl.children().remove();
     $filmEl.children().remove();
+  };
+
+  $searchBtn.on('click', event => {
+    event.preventDefault();
+
+    clearPage()
 
     let selectChar = $searchInput.val().toLowerCase();
 
-    $primaryName.text(charDetails[selectChar].name);
+    if (charDetails[selectChar]) {
+      $plusButton.prop('disabled', false);
 
-    for (let i = 0; i < charDetails[selectChar].shows.length; i++) {
-      let $showDet = $('<li>');
+      $primaryName.text(charDetails[selectChar].name);
 
-      $showDet.text(charDetails[selectChar].shows[i]);
-      $showEl.append($showDet);
-    };
+      for (let i = 0; i < charDetails[selectChar].shows.length; i++) {
+        let $showDet = $('<li>');
 
-    for (let i = 0; i < charDetails[selectChar].games.length; i++) {
-      let $gameDet = $('<li>');
+        $showDet.text(charDetails[selectChar].shows[i]);
+        $showEl.append($showDet);
+      };
 
-      $gameDet.text(charDetails[selectChar].games[i]);
-      $gameEl.append($gameDet);
-    };
+      for (let i = 0; i < charDetails[selectChar].games.length; i++) {
+        let $gameDet = $('<li>');
 
-    for (let i = 0; i < charDetails[selectChar].films.length; i++) {
-      let $filmDet = $('<button>');
+        $gameDet.text(charDetails[selectChar].games[i]);
+        $gameEl.append($gameDet);
+      };
 
-      $filmDet.text(charDetails[selectChar].films[i])
-        .addClass('button is-large is-fullwidth is-inverted mb-1');
-      $filmEl.append($filmDet);
-    };
+      for (let i = 0; i < charDetails[selectChar].films.length; i++) {
+        let $filmDet = $('<button>');
 
-    $setImg.attr({
-      src: charDetails[selectChar].img,
-      alt: 'Image of Character'
-    });
+        $filmDet.text(charDetails[selectChar].films[i])
+          .addClass('button is-large is-fullwidth is-inverted mb-1');
+        $filmEl.append($filmDet);
+      };
 
-    $anchorImg.append($setImg)
-      .attr({
-        href: charDetails[selectChar].source,
-        target: '_blank',
-        title: '(Click for additional content)'
+      $setImg.attr({
+        src: charDetails[selectChar].img,
+        alt: 'Image of Character'
       });
 
-    $primaryImg.append($anchorImg);
+      $anchorImg.append($setImg)
+        .attr({
+          href: charDetails[selectChar].source,
+          target: '_blank',
+          title: '(Click for additional content)'
+        });
+
+      $primaryImg.append($anchorImg);
+    } else {
+      $plusButton.prop('disabled', true);
+    };
   });
 
   // Event listener to enable minus button on favorite character selected
