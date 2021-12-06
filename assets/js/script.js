@@ -153,24 +153,24 @@ $(document).ready(function() {
 
   //localStorage
 
-  const storageInput = document.getElementById('input');
-  const text = document.getElementById('input');
-  const button = document.getElementById('submitBtn');
-  const storedInput = localStorage.getItem('disney')
+  // const storageInput = document.getElementById('input');
+  // const text = document.getElementById('input');
+  // const button = document.getElementById('submitBtn');
+  // const storedInput = localStorage.getItem('disney')
 
-  if (storageInput) {
-    text.textContent = storedInput
-  }
+  // if (storageInput) {
+  //   text.textContent = storedInput
+  // }
 
-  storageInput.addEventListener('input', letter => {
-    text.content.data = letter.target.value
-  })
+  // storageInput.addEventListener('input', letter => {
+  //   text.content.data = letter.target.value
+  // })
 
-  const saveTOlocalStorage = () => {
-    localStorage.setItem('disney', text.content)
-  }
+  // const saveTOlocalStorage = () => {
+  //   localStorage.setItem('disney', text.content)
+  // }
 
-  button.addEventListener('click', saveTOlocalStorage)
+  // button.addEventListener('click', saveTOlocalStorage)
 
 
 });
