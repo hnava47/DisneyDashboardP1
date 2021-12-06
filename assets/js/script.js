@@ -2,12 +2,12 @@ $(document).ready(function() {
   const $searchInput = $('#input');
   const $searchBtn = $('#submitBtn');
   const $primaryName = $('#primary-name');
-  const $primaryImg = $('#primary-img');
+  const $primaryImg = $('#polaroid');
   const $showEl = $('#show');
   const $gameEl = $('#game');
-  const $infoEl = $('#info');
   const $filmEl = $('#film');
   const $setImg = $('<img>');
+  const $anchorImg = $('<a>');
   const $plusButton = $('#p-button')
   const $minusButton = $('#m-button');
   const $modalEl = $('#modal-ter');
@@ -98,10 +98,14 @@ $(document).ready(function() {
         alt: 'Image of Character'
       });
 
-    $infoEl.text("Additional Info")
-      .attr('href', charDetails[selectChar].source);
+    $anchorImg.append($setImg)
+      .attr({
+        href: charDetails[selectChar].source,
+        target: '_blank',
+        title: '(Click for additional content)'
+      });
 
-      $primaryImg.append($setImg);
+    $primaryImg.append($anchorImg);
   });
 
   // Event listener to enable minus button on favorite character selected
