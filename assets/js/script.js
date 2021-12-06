@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 $(document).ready(function () {
+=======
+$(document).ready(function() {
+>>>>>>> b9c4a0df54fb461abd1fb90379aebe13d5cb4342
   const $searchInput = $('#input');
   const $searchBtn = $('#submitBtn');
   const $primaryName = $('#primary-name');
@@ -111,6 +115,22 @@ $(document).ready(function () {
   // Event listener to enable minus button on favorite character selected
   $(document).on('click', '.fav-item', function () {
     $minusButton.prop('disabled', false);
+
+    let removeVal = this
+
+    // Exit modal when no button selected
+    $noBtnEl.on('click', hideModal);
+
+    // Event listener to remove favorite from local storage
+    $yesBtnEl.on('click', function() {
+      hideModal();
+
+    // Remove from HTML
+    removeVal.remove();
+
+    // Remove from Local Storage
+
+    });
   });
 
   // Function to show modal
@@ -126,6 +146,7 @@ $(document).ready(function () {
   // Event listener to displays modal upon minus button click
   $minusButton.on('click', showModal);
 
+<<<<<<< HEAD
   // Event listener to remove favorite from local storage
   $yesBtnEl.on('click', function () {
     hideModal();
@@ -142,6 +163,16 @@ $(document).ready(function () {
   // }).catch(function(error) {
   //   console.log(error);
   // });
+=======
+    // $.ajax({
+    //   method: 'GET',
+    //   url: 'https://imdb-api.com/en/API/SearchMovie/k_bicys5i4/Tangled'
+    // }).then(function(response) {
+    //   console.log(response);
+    // }).catch(function(error) {
+    //   console.log(error);
+    // });
+>>>>>>> b9c4a0df54fb461abd1fb90379aebe13d5cb4342
 
   //localStorage
 
