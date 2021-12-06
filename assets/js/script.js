@@ -15,6 +15,7 @@ $(document).ready(function() {
   const $noBtnEl = $('#modal-no-button');
   let charList = [];
   let charDetails = {};
+  let characters = JSON.parse(localStorage.getItem('characters')) || [];
 
   retrieveChar(1).then(dataLength => {
     for (let i = 2; i <= dataLength; i++) {
@@ -141,6 +142,24 @@ $(document).ready(function() {
 
   // Event listener to displays modal upon minus button click
   $minusButton.on('click', showModal);
+
+  // Disable minus button when click anywhere besides favorite items
+  $('body').click(event => {
+    let $favItem = $('.fav-item');
+    if (!$(event.target).closest($favItem).length) {
+      $minusButton.prop('disabled', true);
+    };
+  });
+
+  $plusButton.on('click', function() {
+    let details = {
+      name: $primaryName.val()
+    };
+
+    characters.unshift(details);
+
+    localStorage.setItem('characters', JSON.stringify(characters));
+  });
 
     // $.ajax({
     //   method: 'GET',
