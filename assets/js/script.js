@@ -121,5 +121,26 @@ $(document).ready(function () {
   // }).catch(function(error) {
   //   console.log(error);
   // });
+  //localStorage
+
+  const storageInput = document.getElementById('input');
+  const text = document.getElementById('input');
+  const button = document.getElementById('submitBtn');
+  const storedInput = localStorage.getItem('disney')
+
+  if (storageInput) {
+    text.textContent = storedInput
+  }
+
+  storageInput.addEventListener('input', letter => {
+    text.content = letter.target.value
+  })
+
+  const saveTOlocalStorage = () => {
+    localStorage.setItem('disney', text.content)
+  }
+
+  button.addEventListener('click', saveTOlocalStorage)
+
 
 });
