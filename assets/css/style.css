@@ -52,10 +52,6 @@ button {
     border: solid 1px gainsboro;
 }
 
-#favorites {
-    width: 100%;
-}
-
 #polaroid a {
     background: #ffffff;
     display: inline-block;
