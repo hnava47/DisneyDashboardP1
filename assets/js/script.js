@@ -6,6 +6,7 @@ $(document).ready(function() {
   const $showEl = $('#show');
   const $gameEl = $('#game');
   const $filmEl = $('#film');
+  const $favEl = $('#favorites');
   const $setImg = $('<img>');
   const $anchorImg = $('<a>');
   const $plusButton = $('#p-button')
@@ -152,13 +153,19 @@ $(document).ready(function() {
   });
 
   $plusButton.on('click', function() {
+    let $favBtn = $('<button>');
     let details = {
-      name: $primaryName.val()
+      name: $primaryName.text()
     };
 
     characters.unshift(details);
 
     localStorage.setItem('characters', JSON.stringify(characters));
+
+    $favBtn.text($primaryName.text())
+      .addClass('button is-info is-outlined is-fullwidth custom-shadow fav-item');
+
+    $favEl.prepend($favBtn);
   });
 
     // $.ajax({
