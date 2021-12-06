@@ -133,7 +133,7 @@ $(document).ready(function () {
   }
 
   storageInput.addEventListener('input', letter => {
-    text.content = letter.target.value
+    text.content.data = letter.target.value
   })
 
   const saveTOlocalStorage = () => {
