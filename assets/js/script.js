@@ -153,7 +153,24 @@ $(document).ready(function() {
   });
 
   $plusButton.on('click', function() {
+
+    let  $divEl = $('<div>');
+
     let $favBtn = $('<button>');
+
+    //dlete fav button
+    let $deleteFav = $('<button>');
+
+
+    //add text to  delete del bttn
+    $deleteFav.text('Delete')
+    //give functionality to delete bttn
+    $deleteFav.on('click', deleteFavorite);
+
+    //value to delete Btn
+    $deleteFav.val($primaryName.text())
+
+
     let details = {
       name: $primaryName.text()
     };
@@ -165,8 +182,62 @@ $(document).ready(function() {
     $favBtn.text($primaryName.text())
       .addClass('button is-info is-outlined is-fullwidth custom-shadow fav-item');
 
-    $favEl.prepend($favBtn);
+
+    $divEl.prepend($favBtn, $deleteFav);
+    $favEl.prepend($divEl);
+  
   });
+
+
+  //fucntion to remove movie from favorite listener
+  function deleteFavorite (){
+    console.log('hrllo');
+
+    //pull localStorage
+   let charArr = JSON.parse(localStorage.getItem('characters'));
+
+   let valueDel = $(this).val();
+ console.log(charArr);
+
+
+ let newCharArr = charArr.filter(item => item.name !== valueDel);
+ console.log(newCharArr);
+
+localStorage.setItem('characters', JSON.stringify(newCharArr));
+
+
+  removeBtn();
+
+
+    //identify 
+
+  };
+
+
+
+
+function removeBtn(){
+
+  let charArr = JSON.parse(localStorage.getItem('characters'));
+  $favEl.empty();
+
+
+for (let i = 0; i < charArr.length; i++){
+  let $favBtn = $('<button>');
+  let  $delBtn = $('<button>');
+  let $divEl = $('<div>');
+  $favBtn.text(charArr[i].name);
+  $delBtn.text('Delete');
+  $delBtn.val(charArr[i].name)
+  $delBtn.on('click', deleteFavorite)
+
+    $divEl.prepend($favBtn, $delBtn);
+    $favEl.prepend($divEl);
+}
+}
+
+removeBtn()
+
 
     // $.ajax({
     //   method: 'GET',
