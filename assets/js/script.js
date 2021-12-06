@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 $(document).ready(function() {
+=======
+$(document).ready(function () {
+
+
+
+
+>>>>>>> bulma
   const $searchInput = $('#input');
   const $searchBtn = $('#submitBtn');
   const $primaryName = $('#primary-name');
@@ -22,7 +30,7 @@ $(document).ready(function() {
     };
   });
 
-  $(function() {
+  $(function () {
     $searchInput.autocomplete({
       minLength: 3,
       source: charList
@@ -38,7 +46,7 @@ $(document).ready(function() {
         let imgURL = '';
 
         if (response.data[i].imageUrl !== undefined) {
-          imgURL = response.data[i].imageUrl.slice(0, response.data[i].imageUrl.length-34);
+          imgURL = response.data[i].imageUrl.slice(0, response.data[i].imageUrl.length - 34);
         };
 
         charList.push(response.data[i].name);
@@ -94,9 +102,9 @@ $(document).ready(function() {
     };
 
     $setImg.attr({
-        src: charDetails[selectChar].img,
-        alt: 'Image of Character'
-      });
+      src: charDetails[selectChar].img,
+      alt: 'Image of Character'
+    });
 
     $anchorImg.append($setImg)
       .attr({
@@ -150,5 +158,27 @@ $(document).ready(function() {
     // }).catch(function(error) {
     //   console.log(error);
     // });
+
+  //localStorage
+
+  const storageInput = document.getElementById('input');
+  const text = document.getElementById('input');
+  const button = document.getElementById('submitBtn');
+  const storedInput = localStorage.getItem('disney')
+
+  if (storageInput) {
+    text.textContent = storedInput
+  }
+
+  storageInput.addEventListener('input', letter => {
+    text.content.data = letter.target.value
+  })
+
+  const saveTOlocalStorage = () => {
+    localStorage.setItem('disney', text.content)
+  }
+
+  button.addEventListener('click', saveTOlocalStorage)
+
 
 });
