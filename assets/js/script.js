@@ -7,6 +7,8 @@ $(document).ready(function() {
   const $gameEl = $('#game');
   const $filmEl = $('#film');
   const $favEl = $('#favorites');
+  const $errorEl = $('#error');
+  const $errorDel = $('.delete');
   const $setImg = $('<img>');
   const $anchorImg = $('<a>');
   const $plusButton = $('#p-button')
@@ -110,7 +112,10 @@ $(document).ready(function() {
   $searchBtn.on('click', event => {
     event.preventDefault();
 
-    clearPage()
+    clearPage();
+
+    $searchInput.css("outline-style", "none");
+    $errorEl.hide();
 
     let selectChar = $searchInput.val().toLowerCase();
 
@@ -156,8 +161,19 @@ $(document).ready(function() {
       $primaryImg.append($anchorImg);
     } else {
       $plusButton.prop('disabled', true);
+
+      $searchInput.css({
+        'outline-style': 'solid',
+        'outline-color': 'red'
+      });
+      $errorEl.show();
     };
   });
+
+  $errorDel.on('click', function() {
+    $searchInput.css('outline-style', 'none');
+    $errorEl.hide();
+  })
 
   // Event listener to enable minus button on favorite character selected
   $(document).on('click', '.fav-item', function() {
