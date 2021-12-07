@@ -187,12 +187,8 @@ $(document).ready(function() {
 
     if (favChar.hasClass('selected')) {
       favChar.removeClass('selected');
-
-      clearPage();
     } else {
       favChar.addClass('selected');
-
-      generateDash(favChar.text().toLowerCase());
     };
 
     if ($('.selected').length) {
@@ -200,6 +196,8 @@ $(document).ready(function() {
     } else {
       $minusButton.prop('disabled', true);
     };
+
+    generateDash(favChar.text().toLowerCase());
   });
 
   $plusButton.on('click', function() {
