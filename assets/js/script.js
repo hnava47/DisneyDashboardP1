@@ -109,16 +109,7 @@ $(document).ready(function() {
     $filmEl.children().remove();
   };
 
-  $searchBtn.on('click', event => {
-    event.preventDefault();
-
-    clearPage();
-
-    $searchInput.css("outline-style", "none");
-    $errorEl.hide();
-
-    let selectChar = $searchInput.val().toLowerCase();
-
+  function generateDash(selectChar) {
     if (charDetails[selectChar]) {
       $plusButton.prop('disabled', false);
 
@@ -168,6 +159,19 @@ $(document).ready(function() {
       });
       $errorEl.show();
     };
+  };
+
+  $searchBtn.on('click', event => {
+    event.preventDefault();
+
+    clearPage();
+
+    $searchInput.css("outline-style", "none");
+    $errorEl.hide();
+
+    let searchChar = $searchInput.val().toLowerCase();
+
+    generateDash(searchChar);
   });
 
   $errorDel.on('click', function() {
@@ -179,10 +183,16 @@ $(document).ready(function() {
   $(document).on('click', '.fav-item', function() {
     $minusButton.prop('disabled', false);
 
-    if ($(this).hasClass('selected')) {
-      $(this).removeClass('selected');
+    let favChar = $(this);
+
+    if (favChar.hasClass('selected')) {
+      favChar.removeClass('selected');
+
+      clearPage();
     } else {
-      $(this).addClass('selected');
+      favChar.addClass('selected');
+
+      generateDash(favChar.text().toLowerCase());
     };
 
     if ($('.selected').length) {
@@ -190,7 +200,6 @@ $(document).ready(function() {
     } else {
       $minusButton.prop('disabled', true);
     };
-
   });
 
   $plusButton.on('click', function() {
