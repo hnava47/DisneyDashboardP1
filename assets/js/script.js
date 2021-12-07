@@ -8,6 +8,8 @@ $(document).ready(function() {
   const $filmEl = $('#film');
   const $favEl = $('#favorites');
   const $errorEl = $('#error');
+  const $filmRef = $('#film-ref');
+  const $nameRef = $('#name-ref');
   const $errorDel = $('.delete');
   const $setImg = $('<img>');
   const $anchorImg = $('<a>');
@@ -148,6 +150,9 @@ $(document).ready(function() {
           target: '_blank',
           title: '(Click for additional content)'
         });
+
+      $filmRef.text('Films');
+      $nameRef.text('Back to Top')
 
       $primaryImg.append($anchorImg);
     } else {
