@@ -6,6 +6,18 @@ button {
     font-family: 'Mouse Memoirs', sans-serif;
 }
 
+.button.is-info.is-outlined:focus {
+    background-color:transparent;
+    border-color:#3e8ed0;
+    color:#3e8ed0
+}
+
+.button.is-info.is-outlined.selected {
+    background-color:#3e8ed0;
+    border-color:#3e8ed0;
+    color:#fff
+}
+
 .main {
     min-height: 15rem;
 }

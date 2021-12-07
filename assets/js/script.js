@@ -86,7 +86,7 @@ $(document).ready(function() {
     };
   };
 
-  function removeDup(char) {
+  function removeChar(char) {
     let uniqueLs = [];
     for (let i = 0; i < characters.length; i++) {
         if (characters[i].name !== char) {
@@ -163,32 +163,18 @@ $(document).ready(function() {
   $(document).on('click', '.fav-item', function() {
     $minusButton.prop('disabled', false);
 
-    let removeVal = this
+    if ($(this).hasClass('selected')) {
+      $(this).removeClass('selected');
+    } else {
+      $(this).addClass('selected');
+    };
 
-    // Exit modal when no button selected
-    $noBtnEl.on('click', hideModal);
-
-    // Event listener to remove favorite from local storage
-    $yesBtnEl.on('click', function() {
-      hideModal();
-
-    // Remove from HTML
-    removeVal.remove();
-
-    // Remove from Local Storage
-
-    });
-  });
-
-  // Event listener to displays modal upon minus button click
-  $minusButton.on('click', showModal);
-
-  // Disable minus button when click anywhere besides favorite items
-  $('body').click(event => {
-    let $favItem = $('.fav-item');
-    if (!$(event.target).closest($favItem).length) {
+    if ($('.selected').length) {
+      $minusButton.prop('disabled', false);
+    } else {
       $minusButton.prop('disabled', true);
     };
+
   });
 
   $plusButton.on('click', function() {
@@ -196,13 +182,31 @@ $(document).ready(function() {
       name: $primaryName.text()
     };
 
-    removeDup(details.name);
+    removeChar(details.name);
 
     characters.unshift(details);
 
     localStorage.setItem('characters', JSON.stringify(characters));
 
     displayFav();
+  });
+
+  // Event listener to displays modal upon minus button click
+  $minusButton.on('click', showModal);
+
+  // Exit modal when no button selected
+  $noBtnEl.on('click', hideModal);
+
+  // Event listener to remove favorite from local storage
+  $yesBtnEl.on('click', function() {
+    hideModal();
+
+    let $selectedFav = $('.selected');
+
+    for (let i = 0; i < $selectedFav.length; i++) {
+      removeChar($selectedFav[i].textContent);
+      $selectedFav[i].remove();
+    };
   });
 
     // $.ajax({
@@ -215,25 +219,4 @@ $(document).ready(function() {
     // });
 
   //localStorage
-
-  // const storageInput = document.getElementById('input');
-  // const text = document.getElementById('input');
-  // const button = document.getElementById('submitBtn');
-  // const storedInput = localStorage.getItem('disney')
-
-  // if (storageInput) {
-  //   text.textContent = storedInput
-  // }
-
-  // storageInput.addEventListener('input', letter => {
-  //   text.content.data = letter.target.value
-  // })
-
-  // const saveTOlocalStorage = () => {
-  //   localStorage.setItem('disney', text.content)
-  // }
-
-  // button.addEventListener('click', saveTOlocalStorage)
-
-
 });
