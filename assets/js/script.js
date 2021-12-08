@@ -251,17 +251,9 @@ $(document).ready(function() {
 
       $.ajax({
         method: 'GET',
-        url: 'https://imdb-api.com/en/API/Trailer/' + apiKey + '/' + filmId + '/?autoplay=false&width=480'
+        url: 'https://imdb-api.com/en/API/Trailer/' + apiKey + '/' + filmId
       }).then(response => {
-        let $trailerVid = $('<iframe>');
-
-        $trailerVid.attr({
-          width: '480',
-          height: '270',
-          src: response.linkEmbed
-        });
-
-        $trailerEl.append($trailerVid);
+        $trailerEl.attr('src', response.linkEmbed + '?autoplay=false&width=640');
 
         console.log(response);
       }).catch(error => {
