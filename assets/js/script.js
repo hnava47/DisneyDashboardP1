@@ -10,6 +10,7 @@ $(document).ready(function() {
   const $errorEl = $('#error');
   const $filmRef = $('#film-ref');
   const $nameRef = $('#name-ref');
+  const $trailerEl = $('#trailer');
   const $errorDel = $('.delete');
   const $setImg = $('<img>');
   const $anchorImg = $('<a>');
@@ -135,7 +136,7 @@ $(document).ready(function() {
         let $filmDet = $('<button>');
 
         $filmDet.text(charDetails[selectChar].films[i])
-          .addClass('button is-large is-fullwidth is-inverted mb-1');
+          .addClass('button is-large is-fullwidth is-inverted mb-1 filmFav');
         $filmEl.append($filmDet);
       };
 
@@ -237,13 +238,38 @@ $(document).ready(function() {
     };
   });
 
-    // $.ajax({
-    //   method: 'GET',
-    //   url: 'https://imdb-api.com/en/API/SearchMovie/k_bicys5i4/Tangled'
-    // }).then(function(response) {
-    //   console.log(response);
-    // }).catch(function(error) {
-    //   console.log(error);
-    // });
+  $(document).on('click', '.filmFav', function() {
 
+    let apiKey = 'k_bicys5i4'
+    let filmName = $(this).text();
+
+    $.ajax({
+      method: 'GET',
+      url: 'https://imdb-api.com/en/API/SearchMovie/' + apiKey + '/' + filmName
+    }).then(response => {
+      let filmId = response.results[0].id;
+
+      $.ajax({
+        method: 'GET',
+        url: 'https://imdb-api.com/en/API/Trailer/' + apiKey + '/' + filmId + '/?autoplay=false&width=480'
+      }).then(response => {
+        let $trailerVid = $('<iframe>');
+
+        $trailerVid.attr({
+          width: '480',
+          height: '270',
+          src: response.linkEmbed
+        });
+
+        $trailerEl.append($trailerVid);
+
+        console.log(response);
+      }).catch(error => {
+        console.log(error);
+      });
+
+    }).catch(error => {
+      console.log(error);
+    });
+  });
 });
