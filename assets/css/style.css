@@ -79,22 +79,22 @@ button {
     transition: all .20s linear;
     z-index: 0;
     position: relative;
-  }
+    }
 
-  #polaroid a:after {
+    #polaroid a:after {
     color: #333;
     font-size: 25px;
     content: attr(title);
     position: relative;
     top: 15px;
-  }
+    }
 
-  #polaroid img {
+#polaroid img {
     display: block;
     width: 250px;
-  }
+}
 
-  #polaroid a:hover {
+#polaroid a:hover {
     -webkit-transform: rotate(5deg) scale(1.2);
     -moz-transform: rotate(5deg) scale(1.2);
     transform: rotate(5deg) scale(1.2);
@@ -102,4 +102,10 @@ button {
     -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, .7);
     -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, .7);
     box-shadow: 0 10px 20px rgba(0, 0, 0, .7);
-  }
+}
+
+div.fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}

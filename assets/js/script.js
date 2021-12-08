@@ -11,6 +11,7 @@ $(document).ready(function() {
   const $filmRef = $('#film-ref');
   const $nameRef = $('#name-ref');
   const $trailerEl = $('#trailer');
+  const $delBtn = $('#delBtn');
   const $errorDel = $('.delete');
   const $setImg = $('<img>');
   const $anchorImg = $('<a>');
@@ -239,7 +240,6 @@ $(document).ready(function() {
   });
 
   $(document).on('click', '.filmFav', function() {
-
     let apiKey = 'k_bicys5i4'
     let filmName = $(this).text();
 
@@ -255,7 +255,7 @@ $(document).ready(function() {
       }).then(response => {
         $trailerEl.attr('src', response.linkEmbed + '?autoplay=false&width=640');
 
-        console.log(response);
+        $delBtn.show();
       }).catch(error => {
         console.log(error);
       });
@@ -264,4 +264,11 @@ $(document).ready(function() {
       console.log(error);
     });
   });
+
+  $delBtn.on('click', function() {
+    $trailerEl.attr('src', '');
+
+    $delBtn.hide();
+  });
+  
 });
