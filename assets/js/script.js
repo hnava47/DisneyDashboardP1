@@ -11,6 +11,7 @@ $(document).ready(function() {
   const $filmRef = $('#film-ref');
   const $nameRef = $('#name-ref');
   const $trailerEl = $('#trailer');
+  const $fixedEl = $('#fixed');
   const $delBtn = $('#delBtn');
   const $errorDel = $('.delete');
   const $setImg = $('<img>');
@@ -255,7 +256,7 @@ $(document).ready(function() {
       }).then(response => {
         $trailerEl.attr('src', response.linkEmbed + '?autoplay=false&width=640');
 
-        $delBtn.show();
+        $fixedEl.show();
       }).catch(error => {
         console.log(error);
       });
@@ -266,9 +267,9 @@ $(document).ready(function() {
   });
 
   $delBtn.on('click', function() {
+    $fixedEl.hide();
+    
     $trailerEl.attr('src', '');
-
-    $delBtn.hide();
   });
-  
+
 });
