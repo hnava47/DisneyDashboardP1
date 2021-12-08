@@ -254,9 +254,13 @@ $(document).ready(function() {
         method: 'GET',
         url: 'https://imdb-api.com/en/API/Trailer/' + apiKey + '/' + filmId
       }).then(response => {
-        $trailerEl.attr('src', response.linkEmbed + '?autoplay=false&width=640');
+        if (response.linkEmbed) {
+          $trailerEl.attr('src', response.linkEmbed + '?autoplay=false&width=640');
 
-        $fixedEl.show();
+          $fixedEl.show();
+        } else {
+          // Add modal with error
+        };
       }).catch(error => {
         console.log(error);
       });
@@ -268,7 +272,7 @@ $(document).ready(function() {
 
   $delBtn.on('click', function() {
     $fixedEl.hide();
-    
+
     $trailerEl.attr('src', '');
   });
 
