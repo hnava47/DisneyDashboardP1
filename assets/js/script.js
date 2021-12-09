@@ -265,6 +265,10 @@ $(document).ready(function() {
 
           $fixedEl.show();
         } else {
+          $warnEl.show();
+          setTimeout(function() {
+            $warnEl.fadeOut();
+          }, 4000);
 
         };
       }).catch(error => {
