@@ -285,4 +285,7 @@ $(document).ready(function() {
     $trailerEl.attr('src', '');
   });
 
+  $warnBtn.on('click', function() {
+    $warnEl.hide();
+  });
 });
