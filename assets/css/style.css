@@ -81,7 +81,7 @@ button {
     position: relative;
     }
 
-    #polaroid a:after {
+#polaroid a:after {
     color: #333;
     font-size: 25px;
     content: attr(title);
@@ -104,7 +104,7 @@ button {
     box-shadow: 0 10px 20px rgba(0, 0, 0, .7);
 }
 
-div#fixed {
+div.fixed {
     position: fixed;
     bottom: 0;
     right: 0;

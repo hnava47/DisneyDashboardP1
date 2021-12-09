@@ -13,6 +13,8 @@ $(document).ready(function() {
   const $trailerEl = $('#trailer');
   const $fixedEl = $('#fixed');
   const $delBtn = $('#delBtn');
+  const $warnEl = $('#warn');
+  const $warnBtn = $('#warnBtn');
   const $errorDel = $('.delete');
   const $setImg = $('<img>');
   const $anchorImg = $('<a>');
@@ -244,6 +246,10 @@ $(document).ready(function() {
     let apiKey = 'k_bicys5i4'
     let filmName = $(this).text();
 
+    $fixedEl.hide();
+    $trailerEl.attr('src', '');
+    $warnEl.hide();
+
     $.ajax({
       method: 'GET',
       url: 'https://imdb-api.com/en/API/SearchMovie/' + apiKey + '/' + filmName
@@ -259,7 +265,11 @@ $(document).ready(function() {
 
           $fixedEl.show();
         } else {
-          // Add modal with error
+          $warnEl.show();
+          setTimeout(function() {
+            $warnEl.fadeOut();
+          }, 4000);
+
         };
       }).catch(error => {
         console.log(error);
@@ -272,8 +282,10 @@ $(document).ready(function() {
 
   $delBtn.on('click', function() {
     $fixedEl.hide();
-
     $trailerEl.attr('src', '');
   });
 
+  $warnBtn.on('click', function() {
+    $warnEl.hide();
+  });
 });
