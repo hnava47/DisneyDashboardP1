@@ -212,6 +212,8 @@ $(document).ready(function() {
       $minusButton.prop('disabled', true);
     };
 
+    clearPage();
+
     generateDash(favChar.text().toLowerCase());
   });
 
