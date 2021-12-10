@@ -29,7 +29,7 @@
       <!-- START SEARCH AND FAVORITES -->
       <div class="column is-one-fifth ml-4">
         <h2 class="is-size-1 has-text-weight-bold has-text-black mb-3">Search Characters:</h2>
-        <form>
+        <form id="submitForm">
           <div>
             <input id="input" class="input is-large is-info mb-3" type="text" placeholder="Character input">
           </div>
@@ -37,7 +37,7 @@
             <span class="icon has-text-danger">
               <i class="fas fa-ban"></i>
             </span>
-            <button class="delete"></button>
+            <button id="notificationDel" class="delete" type="button"></button>
             <span>Invalid Character! Please try again.</span>
           </div>
           <div class="bb">
