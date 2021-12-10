@@ -1,6 +1,6 @@
 $(document).ready(function() {
   const $searchInput = $('#input');
-  const $searchBtn = $('#submitBtn');
+  const $submitForm = $("#submitForm");
   const $primaryName = $('#primary-name');
   const $primaryImg = $('#polaroid');
   const $showEl = $('#show');
@@ -15,7 +15,7 @@ $(document).ready(function() {
   const $delBtn = $('#delBtn');
   const $warnEl = $('#warn');
   const $warnBtn = $('#warnBtn');
-  const $errorDel = $('.delete');
+  const $errorDel = $('#notificationDel');
   const $setImg = $('<img>');
   const $anchorImg = $('<a>');
   const $plusButton = $('#p-button')
@@ -176,7 +176,7 @@ $(document).ready(function() {
     };
   };
 
-  $searchBtn.on('click', event => {
+  $submitForm.on('submit', event => {
     event.preventDefault();
 
     clearPage();
