@@ -114,6 +114,9 @@ $(document).ready(function() {
     $showEl.children().remove();
     $gameEl.children().remove();
     $filmEl.children().remove();
+
+    $filmRef.hide();
+    $nameRef.hide();
   };
 
   function generateDash(selectChar) {
@@ -156,12 +159,14 @@ $(document).ready(function() {
           title: '(Click for additional content)'
         });
 
-      $filmRef.text('Films');
-      $nameRef.text('Back to Top')
+      $filmRef.show();
+      $nameRef.show();
 
       $primaryImg.append($anchorImg);
     } else {
       $plusButton.prop('disabled', true);
+
+      clearPage();
 
       $searchInput.css({
         'outline-style': 'solid',
