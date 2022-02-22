@@ -12,6 +12,7 @@
     <summary>Table of Contents</summary>
     <ol>
         <li><a href="#about-the-project">About The Project</a></li>
+        <li><a href="#license">License</a></li>
         <li><a href="#contact">Contact</a></li>
     </ol>
 </details>
@@ -35,6 +36,11 @@ If the user enters an incorrect character name, the page will notify them accord
 
 You can access the updated website at the following link:
 * [Deployed Application](https://hnava47.github.io/DisneyDashboardP1/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## License
+Distributed under the MIT License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
